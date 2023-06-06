@@ -6,7 +6,7 @@ samochody = [
         "przebieg": "67 000km",
         "silnik": "2987 cm<sup>3</sup> - Diesel - 258KM",
         "cena": "249 000zł",
-        "img": "../img/Mercedes-Benz GLE 350D.jpg"
+        "img": "img/Mercedes-Benz GLE 350D.jpg"
     },
     {
         "nazwa": "Volkswagen Golf VII",
@@ -14,7 +14,7 @@ samochody = [
         "przebieg": "171 000km",
         "silnik": "1598 cm<sup>3</sup> - Diesel - 115KM",
         "cena": "46 999zł",
-        "img": "../img/Volkswagen Golf VII.jpg"
+        "img": "img/Volkswagen Golf VII.jpg"
     },
     {
         "nazwa": "Audi RS7 Quattro ",
@@ -22,7 +22,7 @@ samochody = [
         "przebieg": "33 000km",
         "silnik": "3 996 cm<sup>3</sup> - Benzyna - 600KM",
         "cena": "749 900zł",
-        "img": "../img/Audi RS7.jpg"
+        "img": "img/Audi RS7.jpg"
     },
     {
         "nazwa": "Porsche 911",
@@ -30,7 +30,7 @@ samochody = [
         "przebieg": "63 964km",
         "silnik": "3 614 cm<sup>3</sup> - Benzyna - 345KM",
         "cena": "379 900zł",
-        "img": "../img/Porsche 911.jpg"
+        "img": "img/Porsche 911.jpg"
     },
     {
         "nazwa": "BMW X7 XDrive40d",
@@ -38,7 +38,7 @@ samochody = [
         "przebieg": "35 000km",
         "silnik": "2 993 cm<sup>3</sup> - Diesel - 340KM",
         "cena": "554 193zł",
-        "img": "../img/BMW X7 XDrive40d.jpg"
+        "img": "img/BMW X7 XDrive40d.jpg"
     },
     {
         "nazwa": "Mercedes-Benz 350 4-Matic",
@@ -46,7 +46,7 @@ samochody = [
         "przebieg": "260 000km",
         "silnik": "2 987 cm<sup>3</sup> - Diesel - 258KM",
         "cena": "159 900zł",
-        "img": "../img/Mercedes-Benz Klasa S 350.jpg"
+        "img": "img/Mercedes-Benz Klasa S 350.jpg"
     }
 ]
 
@@ -169,20 +169,6 @@ function PodliczanieCeny(index) {
 
 
 
-// * Skrypt na wyswieltanie daty
-var select = document.getElementById("data");
-var today = new Date();
-
-for (var i = 0; i < 15; i++) {
-  var date = new Date();
-  date.setDate(today.getDate() + i + 7);
-
-  var option = document.createElement("option");
-  option.value = date.toISOString().split("T")[0];
-  option.text = date.toLocaleDateString();
-
-  select.add(option);
-}
 
 
 
