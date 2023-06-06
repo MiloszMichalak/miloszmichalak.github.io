@@ -1,0 +1,14 @@
+.prezentacjaKodu
+{
+    padding: 12px 10px;
+    width: 300px;
+    background-color: #3F72AF;
+    color: rgb(255, 255, 255);
+    font-family: 'Kanit';
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 10px 3px rgba(6, 70, 99, 1);
+    -moz-box-shadow: inset 0px 0px 10px 3px rgba(6, 70, 99, 1);
+}
