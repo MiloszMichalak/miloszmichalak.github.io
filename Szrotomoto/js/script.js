@@ -47,9 +47,6 @@ samochody = [
         "silnik": "2 987 cm<sup>3</sup> - Diesel - 258KM",
         "cena": "159 900zł",
         "img": "../img/Mercedes-Benz Klasa S 350.jpg"
-    },
-    {
-        
     }
 ]
 
@@ -132,22 +129,60 @@ function OdczytajDane(){
     document.getElementById("img").src = img;
 }
 
-function wybierzDate() {
-    console.log("Dziala gowno");
-    var select = document.getElementById("data");
-    var today = new Date();
-    
-    select.options.length = 1;
-  
-    for (var i = 0; i < 15; i++) {
-      var date = new Date();
-      date.setDate(today.getDate() + i);
-  
-      var option = document.createElement("option");
-      option.value = date.toISOString().split("T")[0];
-      option.text = date.toLocaleDateString();
-  
-      select.add(option);
+
+let cenaGlobalna = 0;
+// ! Dziala ta funkcja z podliczaniem ceny
+function PodliczanieCeny(index) {
+    let cena = parseInt(sessionStorage.getItem("cena"));
+    if (document.getElementById("style1").checked == true){
+        cena += parseInt(20516);
+    } 
+    if (document.getElementById("style2").checked == true){
+        cena += parseInt(44140);
     }
-  }
-  
+    if (document.getElementById("wyposazenie1").checked == true){
+        cena += parseInt(24645);
+    }
+    if (document.getElementById("wyposazenie2").checked == true){
+        cena += parseInt(48627);
+    }
+    if (document.getElementById("akcesoria1").checked == true){
+        cena += parseInt(6217);
+    }
+    if (document.getElementById("akcesoria2").checked == true){
+        cena += parseInt(18363);
+    }
+    if (document.getElementById("akcesoria3").checked == true){
+        cena += parseInt(30509);
+    }
+    if (document.getElementById("akcesoria4").checked == true){
+        cena += parseInt(37928);
+    }
+    if (document.getElementById("akcesoria5").checked == true){
+        cena += parseInt(10937);
+    }
+    cenaGlobalna = cena;
+    // localStorage.setItem("cena", cenaGlobalna);
+}
+
+// TODO Skrypt na zachowywanie danych po odswiezeniu
+
+
+
+// * Skrypt na wyswieltanie daty
+var select = document.getElementById("data");
+var today = new Date();
+
+for (var i = 0; i < 15; i++) {
+  var date = new Date();
+  date.setDate(today.getDate() + i + 7);
+
+  var option = document.createElement("option");
+  option.value = date.toISOString().split("T")[0];
+  option.text = date.toLocaleDateString();
+
+  select.add(option);
+}
+
+
+
