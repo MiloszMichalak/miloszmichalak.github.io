@@ -50,6 +50,20 @@ samochody = [
     }
 ]
 
+// * Skrypt na wybieranie daty
+var select = document.getElementById("data");
+var today = new Date();
+
+for (var i = 0; i < 15; i++) {
+  var date = new Date();
+  date.setDate(today.getDate() + i + 7);
+
+  var option = document.createElement("option");
+  option.value = date.toISOString().split("T")[0];
+  option.text = date.toLocaleDateString();
+
+  select.add(option);
+}
 
 function Wybor(){
     let select = document.getElementById("cars");
@@ -129,8 +143,6 @@ function OdczytajDane(){
     document.getElementById("img").src = img;
 }
 
-
-let cenaGlobalna = 0;
 // ! Dziala ta funkcja z podliczaniem ceny
 function PodliczanieCeny(index) {
     let cena = parseInt(sessionStorage.getItem("cena"));
@@ -161,14 +173,44 @@ function PodliczanieCeny(index) {
     if (document.getElementById("akcesoria5").checked == true){
         cena += parseInt(10937);
     }
-    cenaGlobalna = cena;
-    // localStorage.setItem("cena", cenaGlobalna);
+    localStorage.setItem("cena", cena);
 }
 
-// TODO Skrypt na zachowywanie danych po odswiezeniu
+// ? Skrypt na zachowywanie danych po odswiezeniu - osiagalne tylko to input:text i select a do radio i checkbox juz nie
+  // Sprawdź, czy istnieją parametry w adresie URL
+  if (window.location.search) {
+    var params = new URLSearchParams(window.location.search);
+    
+    // Jeśli parametry istnieją, ustaw wartości pól formularza na podstawie tych parametrów
+    document.getElementById("formularz").elements["imie"].value = params.get("imie") || "";
+    document.getElementById("formularz").elements["nazwisko"].value = params.get("nazwisko") || "";
+    document.getElementById("formularz").elements["odbior"].value = params.get("odbior") || "";
+    document.getElementById("formularz").elements["data"].value = params.get("data") || "";
+  }
 
+  // Nasłuchuj zdarzenia wysłania formularza
+  document.getElementById("formularz").addEventListener("submit", function (event) {
+    // Zatrzymaj domyślne zachowanie formularza
+    event.preventDefault();
 
+    // Pobierz dane formularza
+    var formData = {
+      imie: document.getElementById("formularz").elements["imie"].value,
+      nazwisko: document.getElementById("formularz").elements["nazwisko"].value,
+      odbior: document.getElementById("formularz").elements["odbior"].value,
+      data: document.getElementById("formularz").elements["data"].value
+    };
 
+    // Utwórz parametry URL na podstawie danych formularza
+    var params = new URLSearchParams(formData);
 
+    // Przejdź do nowego adresu URL z parametrami formularza
+    window.location.href = window.location.pathname + "?" + params.toString();
+  });
+  
+  
+  
+  
 
+// TODO Funkcja ktora zostaje wykonana po nacisnieciu guzika zakup (Cena i data(raczej tylko))
 
