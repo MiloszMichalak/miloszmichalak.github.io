@@ -1,174 +1,293 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="description" content="Salon samochodowy Szrotomoto. Strona internetowa zrobiona w celach edukacyjnych">
-    <meta name="keywords" content="Nauka, mercedes, samochod, salon, samochod">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta
+      name="description"
+      content="Salon samochodowy Szrotomoto. Strona internetowa zrobiona w celach edukacyjnych"
+    />
+    <meta
+      name="keywords"
+      content="Nauka, mercedes, samochod, salon, samochod"
+    />
     <title>Szrotomoto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/script.js"></script>
-</head>
-<body>
-    
-  <!-- TODO Ekran ktory wyskakuje po zakupie samochodu-->
-  <!-- TODO Lepsze skalowanie strony bo teraz tak to meh dziala-->
-  <!-- TODO Sortowanie aut pod napisem a nie na pasku zadan i lepszy napis komisu na pasku zadan-->
+  </head>
+  <body>
 
     <nav class="navbar navbar-expand-lg bg-body-secondary">
-        <div class="container-fluid">
-          <a class="navbar-brand fs-3" href="index.html">Szrotomoto</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <label>Wyszukaj po marce:</label>
-          <select name="cars" id="cars" onchange="Wybor()">
-              <option value="all">Wszystkie</option>
-              <option value="volkswagen">Volkswagen</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-              <option value="porsche">Porsche</option>
-              <option value="bmw">BMW</option>
+      <div class="container-fluid">
+        <a class="navbar-brand fs-1 d-block ms-auto me-auto" href="index.html"
+          >Szrotomoto</a
+        >
+      </div>
+    </nav>
+
+    <div class="container offset-xxl-2">
+      <h1 class="mt-5 mb-5 display-2">Komis samochodowy "Szrotomoto"</h1>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <label class="fs-4 mb-2">Wyszukaj po marce:</label>
+          <select
+            class="form-select mb-4"
+            name="cars"
+            id="cars"
+            onchange="Wybor()"
+          >
+            <option value="all">Wszystkie</option>
+            <option value="volkswagen">Volkswagen</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+            <option value="porsche">Porsche</option>
+            <option value="bmw">BMW</option>
           </select>
         </div>
-      </nav>
-      
-      <div class="container offset-xxl-3">
-        <h1 class="mt-5 mb-5 display-1">Komis samochodowy "Szrotomoto"</h1>
-
-        <!-- ! Wyswietlanie w karcie: cena, obrazek, marka, rok, model, rocznik, moc silnika, przebieg -->
-        <a href="#" class="text-decoration-none" onclick="WczytajDane(0)">
-        <div class="card mb-5 cars mercedes" style="max-width: 940px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="img/Mercedes-Benz GLE 350D.jpg" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h3 class="card-title">Mercedes-Benz GLE Coupe 350 D 4-Matic</h3>
-                    <p class="card-text mb-1 fs-5"><small class="text-body-secondary">2016 - 67 000km</p>
-                    <p class="card-text fs-6">2 987 cm<sup>3</sup> - Diesel - 258KM</p>  
-                    <p class="card-text text-danger me-3 h4">249 000zł</p>  
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-          <a href="#" class="text-decoration-none" onclick="WczytajDane(1)">
-          <div class="card mb-5 cars volkswagen" style="max-width: 940px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="img/Volkswagen Golf VII.jpg" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h3 class="card-title">Volkswagen Golf VII</h3>
-                    <p class="card-text mb-1 fs-5"><small class="text-body-secondary">2018 - 171 000km</p>
-                    <p class="card-text fs-6">1 598 cm<sup>3</sup> - Diesel - 115KM</p>  
-                    <p class="card-text text-danger position-absolute end-0 bottom-50 me-3 h4">46 999zł</p>  
-                </div>
-              </div>
-            </div>
-          </div>
-          </a>
-
-          <a href="#" class="text-decoration-none" onclick="WczytajDane(2)">
-          <div class="card mb-5 cars audi" style="max-width: 940px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="img/Audi RS7.jpg" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h3 class="card-title">Audi RS7 4.0 TFSI Quattro Tiptronic</h3>
-                    <p class="card-text mb-1 fs-5"><small class="text-body-secondary">2021 - 33 000km</p>
-                    <p class="card-text fs-6">3 996 cm<sup>3</sup> - Benzyna - 600KM</p>  
-                    <p class="card-text text-danger position-absolute end-0 bottom-50 me-3 h4">749 000zł</p>  
-                </div>
-              </div>
-            </div>
-          </div>
-          </a>
-
-          <a href="#" class="text-decoration-none" onclick="WczytajDane(3)">
-          <div class="card mb-5 cars porsche" style="max-width: 940px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="img/Porsche 911.jpg" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h3 class="card-title">Porsche 911</h3>
-                    <p class="card-text mb-1 fs-5"><small class="text-body-secondary">2011 - 63 964km</p>
-                    <p class="card-text fs-6">3 614 cm<sup>3</sup> - Benzyna - 345KM</p>  
-                    <p class="card-text text-danger position-absolute end-0 bottom-50 me-3 h4">379 000zł</p>  
-                </div>
-              </div>
-            </div>
-          </div>
-          </a>
-
-          <a href="#" class="text-decoration-none" onclick="WczytajDane(4)">
-          <div class="card mb-5 cars bmw" style="max-width: 940px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="img/BMW X7 XDrive40d.jpg" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h3 class="card-title">BMW X7 XDrive40d</h3>
-                    <p class="card-text mb-1 fs-5"><small class="text-body-secondary">2022 - 35 000km</p>
-                    <p class="card-text fs-6">2 993 cm<sup>3</sup> - Diesel - 340KM</p>  
-                    <p class="card-text text-danger position-absolute end-0 bottom-50 me-3 h4">554 193zł</p>  
-                </div>
-              </div>
-            </div>
-          </div>
-          </a>
-
-          <a href="#" class="text-decoration-none" onclick="WczytajDane(5)">
-            <div class="card mb-5 cars mercedes" style="max-width: 940px;">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="img/Mercedes-Benz Klasa S 350.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h3 class="card-title">Mercedes-Benz Klasa S 350</h3>
-                      <p class="card-text mb-1 fs-5"><small class="text-body-secondary">2015 - 260 000km</p>
-                      <p class="card-text fs-6">2 987 cm<sup>3</sup> - Diesel - 258KM</p>  
-                      <p class="card-text text-danger position-absolute end-0 bottom-50 me-3 h4">159 900zł</p>  
-                  </div>
-                </div>
-              </div>
-            </div>
-            </a>
-
-            <!-- ! Ten caly div jest do zmiany-->
-            <a href="#" class="text-decoration-none" onclick="WczytajDane(5)">
-              <div class="card mb-5 cars mercedes" style="max-width: 940px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="img/Mercedes-Benz Klasa S 350.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h3 class="card-title">Mercedes-Benz Klasa S 350</h3>
-                        <p class="card-text mb-1 fs-5"><small class="text-body-secondary">2015 - 260 000km</p>
-                        <p class="card-text fs-6">2 987 cm<sup>3</sup> - Diesel - 258KM</p>  
-                        <p class="card-text text-danger position-absolute end-0 bottom-50 me-3 h4">159 900zł</p>  
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </a>
-
       </div>
-      
 
-</body>
+      <!-- ! Wyswietlanie w karcie: cena, obrazek, marka, rok, model, rocznik, moc silnika, przebieg -->
+      <a href="#" class="text-decoration-none" onclick="WczytajDane(0)">
+        <div class="card mb-5 cars mercedes" style="max-width: 940px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/Mercedes-Benz GLE 350D.jpg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                    <h3 class="card-title m-0">
+                      Mercedes-Benz GLE Coupe 350 D
+                    </h3>
+                    <p class="card-text mb-1 fs-5">2016 - 67 000km</p>
+                    <p class="card-text fs-6">
+                      2 987 cm<sup>3</sup> - Diesel - 258KM
+                    </p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-12 mt-3 align-self-center">
+                    <p class="card-text text-danger me-3 h4">249 000zł</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="text-decoration-none" onclick="WczytajDane(1)">
+        <div class="card mb-5 cars mercedes" style="max-width: 940px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/Volkswagen Golf VII.jpg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                    <h3 class="card-title m-0">
+                      Volkswagen Golf VII
+                    </h3>
+                    <p class="card-text mb-1 fs-5">2018 - 171 000km</p>
+                    <p class="card-text fs-6">
+                      1 598 cm<sup>3</sup> - Diesel - 115KM
+                    </p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-12 mt-3 align-self-center">
+                    <p class="card-text text-danger me-3 h4">46 999zł</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+
+      <a href="#" class="text-decoration-none" onclick="WczytajDane(2)">
+        <div class="card mb-5 cars mercedes" style="max-width: 940px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/Audi RS7.jpg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                    <h3 class="card-title m-0">
+                      Audi RS7 4.0 TFSI Quattro Tiptronic
+                    </h3>
+                    <p class="card-text mb-1 fs-5">2021 - 33 000km</p>
+                    <p class="card-text fs-6">
+                      3 996 cm<sup>3</sup> - Benzyna - 600KM
+                    </p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-12 mt-3 align-self-center">
+                    <p class="card-text text-danger me-3 h4">749 000zł</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+
+      <a href="#" class="text-decoration-none" onclick="WczytajDane(3)">
+        <div class="card mb-5 cars mercedes" style="max-width: 940px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/Porsche 911.jpg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                    <h3 class="card-title m-0">
+                      Porsche 911
+                    </h3>
+                    <p class="card-text mb-1 fs-5">2011 - 63 964km</p>
+                    <p class="card-text fs-6">
+                      3 614 cm<sup>3</sup> - Benzyna - 345KM
+                    </p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-12 mt-3 align-self-center">
+                    <p class="card-text text-danger me-3 h4">379 000zł</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="text-decoration-none" onclick="WczytajDane(4)">
+        <div class="card mb-5 cars mercedes" style="max-width: 940px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/BMW X7 XDrive40d.jpg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                    <h3 class="card-title m-0">
+                      BMW X7 XDrive40d
+                    </h3>
+                    <p class="card-text mb-1 fs-5">2022 - 35 000km</p>
+                    <p class="card-text fs-6">
+                      2 993 cm<sup>3</sup> - Diesel - 340KM
+                    </p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-12 mt-3 align-self-center">
+                    <p class="card-text text-danger me-3 h4">554 193zł</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="text-decoration-none" onclick="WczytajDane(5)">
+        <div class="card mb-5 cars mercedes" style="max-width: 940px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/Mercedes-Benz Klasa S 350.jpg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                    <h3 class="card-title m-0">
+                      Mercedes-Benz Klasa S 350
+                    </h3>
+                    <p class="card-text mb-1 fs-5">2015 - 260 000km</p>
+                    <p class="card-text fs-6">
+                      2 987 cm<sup>3</sup> - Diesel - 258KM
+                    </p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-12 mt-3 align-self-center">
+                    <p class="card-text text-danger me-3 h4">159 900zł</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+
+     <!-- TODO ten div do zmiany bo jest szablonem i tu jest powtorka-->
+      <a href="#" class="text-decoration-none" onclick="WczytajDane(5)">
+        <div class="card mb-5 cars mercedes" style="max-width: 940px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/Mercedes-Benz Klasa S 350.jpg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                    <h3 class="card-title m-0">
+                      Mercedes-Benz Klasa S 350
+                    </h3>
+                    <p class="card-text mb-1 fs-5">2015 - 260 000km</p>
+                    <p class="card-text fs-6">
+                      2 987 cm<sup>3</sup> - Diesel - 258KM
+                    </p>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-12 mt-3 align-self-center">
+                    <p class="card-text text-danger me-3 h4">159 900zł</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+
+    </div>
+  </body>
 </html>

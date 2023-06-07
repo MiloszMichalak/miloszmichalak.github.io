@@ -62,7 +62,7 @@ for (var i = 0; i < 15; i++) {
   option.value = date.toISOString().split("T")[0];
   option.text = date.toLocaleDateString();
 
-  select.add(option);
+  select.appendChild(option);
 }
 
 function Wybor(){
@@ -135,15 +135,68 @@ function OdczytajDane(){
     let cena = sessionStorage.getItem("cena");
     let img = sessionStorage.getItem("img");
     
-    document.getElementById("nazwa").innerHTML = "".concat(nazwa);
+    document.getElementById("nazwa").innerHTML = nazwa;
     document.getElementById("rocznik").innerHTML = "Rocznik: ".concat(rocznik);
     document.getElementById("przebieg").innerHTML = "Przebieg: ".concat(przebieg);
-    document.getElementById("silnik").innerHTML = "".concat(silnik);
-    document.getElementById("cena").innerHTML = "".concat(cena);
+    document.getElementById("silnik").innerHTML = silnik;
+    document.getElementById("cena").innerHTML = cena;
     document.getElementById("img").src = img;
 }
 
+
 // ! Dziala ta funkcja z podliczaniem ceny
+<<<<<<< HEAD
+function PodliczanieCeny() {
+    var cena = sessionStorage.getItem("cena");
+    cena = cena.substring(0, cena.length - 2);
+    cena = cena.replace(" ", "");
+    let cenaDodatkowa = 0;
+    let wyposazenie1 = document.getElementsByName('wyposazenie');
+    let wyposazenie2 = document.getElementsByName('wyposazenie2');
+    let akcesoria = document.getElementsByName('akcesoria');
+    for (let i = 0; i < wyposazenie1.length; i++){
+        if (wyposazenie1[i].checked){
+            cenaDodatkowa += parseInt(wyposazenie1[i].value);
+        }
+    }
+    for (let i = 0; i < wyposazenie2.length; i++){
+        if (wyposazenie2[i].checked){
+            cenaDodatkowa += parseInt(wyposazenie2[i].value);
+        }
+    }
+    for (let i = 0; i < akcesoria.length; i++){
+        if (akcesoria[i].checked){
+            cenaDodatkowa += parseInt(akcesoria[i].value);
+        }
+    }
+    let cenaKoncowa = parseInt(cena) + cenaDodatkowa;
+    sessionStorage.setItem("cenaKoncowa", cenaKoncowa);
+}
+
+// ? Skrypt na zachowywanie danych po odswiezeniu - osiagalne tylko to input:text i select a do radio i checkbox juz nie
+
+function zakup(){
+    document.getElementById("formularz").addEventListener("submit", function(event) {
+        event.preventDefault();
+        window.location.href = "zakupiono.html";
+        PodliczanieCeny();
+        var selectElement = document.getElementById("data");
+        sessionStorage.setItem("dataDostarczenia", selectElement.value);
+    });
+    
+}
+
+function odczytajZakup() {
+    var nazwa = sessionStorage.getItem("nazwa");
+    var img = sessionStorage.getItem("img");
+    var cenaZakupu = sessionStorage.getItem("cenaKoncowa");
+    var dataDostarczenia = sessionStorage.getItem("dataDostarczenia");
+    document.getElementById("nazwa").textContent = nazwa;
+    document.getElementById("cena").textContent = "Koszt całkowity: " + cenaZakupu + "zł";
+    document.getElementById("dataDostarczenia").textContent = "Auto zostanie dostarczone: " + dataDostarczenia;
+    document.getElementById("img").src = img;
+}
+=======
 function PodliczanieCeny(index) {
     let cena = parseInt(sessionStorage.getItem("cena"));
     if (document.getElementById("style1").checked == true){
@@ -184,4 +237,5 @@ function PodliczanieCeny(index) {
   
 
 // TODO Funkcja ktora zostaje wykonana po nacisnieciu guzika zakup (Cena i data(raczej tylko))
+>>>>>>> 6ba76ed40b12189e7cca51340e43fcd7d75b598e
 
