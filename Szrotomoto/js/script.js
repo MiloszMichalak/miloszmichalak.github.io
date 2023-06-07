@@ -145,7 +145,6 @@ function OdczytajDane(){
 
 
 // ! Dziala ta funkcja z podliczaniem ceny
-<<<<<<< HEAD
 function PodliczanieCeny() {
     var cena = sessionStorage.getItem("cena");
     cena = cena.substring(0, cena.length - 2);
@@ -178,10 +177,10 @@ function PodliczanieCeny() {
 function zakup(){
     document.getElementById("formularz").addEventListener("submit", function(event) {
         event.preventDefault();
-        window.location.href = "zakupiono.html";
         PodliczanieCeny();
         var selectElement = document.getElementById("data");
         sessionStorage.setItem("dataDostarczenia", selectElement.value);
+        window.location.href = "zakupiono.html";
     });
     
 }
@@ -196,46 +195,5 @@ function odczytajZakup() {
     document.getElementById("dataDostarczenia").textContent = "Auto zostanie dostarczone: " + dataDostarczenia;
     document.getElementById("img").src = img;
 }
-=======
-function PodliczanieCeny(index) {
-    let cena = parseInt(sessionStorage.getItem("cena"));
-    if (document.getElementById("style1").checked == true){
-        cena += 20516;
-    } 
-    if (document.getElementById("style2").checked == true){
-        cena += 44140;
-    }
-    if (document.getElementById("wyposazenie1").checked == true){
-        cena += 24645;
-    }
-    if (document.getElementById("wyposazenie2").checked == true){
-        cena += 48627;
-    }
-    if (document.getElementById("akcesoria1").checked == true){
-        cena += 6217;
-    }
-    if (document.getElementById("akcesoria2").checked == true){
-        cena += 18363;
-    }
-    if (document.getElementById("akcesoria3").checked == true){
-        cena += 30509;
-    }
-    if (document.getElementById("akcesoria4").checked == true){
-        cena += 37928;
-    }
-    if (document.getElementById("akcesoria5").checked == true){
-        cena += 10937;
-    }
-    localStorage.setItem("cenaZakupu", cena);
-}
 
 // ? Skrypt na zachowywanie danych po odswiezeniu - osiagalne tylko to input:text i select a do radio i checkbox juz nie
-
-  
-
-
-  
-
-// TODO Funkcja ktora zostaje wykonana po nacisnieciu guzika zakup (Cena i data(raczej tylko))
->>>>>>> 6ba76ed40b12189e7cca51340e43fcd7d75b598e
-
