@@ -47,6 +47,22 @@ samochody = [
         "silnik": "2 987 cm<sup>3</sup> - Diesel - 258KM",
         "cena": "159 900zł",
         "img": "img/Mercedes-Benz Klasa S 350.jpg"
+    },
+    {
+        "nazwa": "Volkswagen Passat 2.0 TDI Comfortline",
+        "rocznik": "2012",
+        "przebieg": "340 000km",
+        "silnik": "1 968 cm<sup>3</sup> - Diesel - 170KM",
+        "cena": "38 000zł",
+        "img": "img/Volkswagen Passat 2.0 TDI Comfortline.jpg"
+    },
+    {
+        "nazwa": "Audi QA8",
+        "rocznik": "2019",
+        "przebieg": "39 200km",
+        "silnik": "2 995 cm<sup>3</sup> - Benzyna - 340KM",
+        "cena": "284 900zł",
+        "img": "img/Audi Q8.jpg"
     }
 ]
 
@@ -179,6 +195,12 @@ function zakup(){
         event.preventDefault();
         PodliczanieCeny();
         var selectElement = document.getElementById("data");
+        var odMetodyPlatnosci = document.getElementsByName("platnosc");
+        if (odMetodyPlatnosci[0].checked) {
+            sessionStorage.setItem("metodaPlatnosci", "Gotówka");
+        } else {
+            sessionStorage.setItem("metodaPlatnosci", "Leasing");
+        }
         sessionStorage.setItem("dataDostarczenia", selectElement.value);
         window.location.href = "zakupiono.html";
     });
@@ -190,9 +212,13 @@ function odczytajZakup() {
     var img = sessionStorage.getItem("img");
     var cenaZakupu = sessionStorage.getItem("cenaKoncowa");
     var dataDostarczenia = sessionStorage.getItem("dataDostarczenia");
+    var metodaPlatnosci = sessionStorage.getItem("metodaPlatnosci");
+    
+    
     document.getElementById("nazwa").textContent = nazwa;
     document.getElementById("cena").textContent = "Koszt całkowity: " + cenaZakupu + "zł";
     document.getElementById("dataDostarczenia").textContent = "Auto zostanie dostarczone: " + dataDostarczenia;
+    document.getElementById("metodaPlatnosci").textContent = "Metoda platnosci: " + metodaPlatnosci;
     document.getElementById("img").src = img;
 }
 
