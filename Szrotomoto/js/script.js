@@ -57,12 +57,28 @@ samochody = [
         "img": "img/Volkswagen Passat 2.0 TDI Comfortline.jpg"
     },
     {
-        "nazwa": "Audi QA8",
+        "nazwa": "Audi Q8",
         "rocznik": "2019",
         "przebieg": "39 200km",
         "silnik": "2 995 cm<sup>3</sup> - Benzyna - 340KM",
         "cena": "284 900zł",
         "img": "img/Audi Q8.jpg"
+    },
+    {
+        "nazwa": "Porsche Panamera",
+        "rocznik": "2020",
+        "przebieg": "18 600km",
+        "silnik": "3 996 cm<sup>3</sup> - Benzyna - 630KM",
+        "cena": "889 900zł",
+        "img": "img/Porsche Panamera.jpg"
+    },
+    {
+        "nazwa": "BMW Seria 8 M850i XDrive",
+        "rocznik": "2021",
+        "przebieg": "27 060km",
+        "silnik": "4 395 cm<sup>3</sup> - Benzyna - 530KM",
+        "cena": "449 900zł",
+        "img": "img/BMW seria8.jpg"
     }
 ]
 
@@ -221,5 +237,3 @@ function odczytajZakup() {
     document.getElementById("metodaPlatnosci").textContent = "Metoda platnosci: " + metodaPlatnosci;
     document.getElementById("img").src = img;
 }
-
-// ? Skrypt na zachowywanie danych po odswiezeniu - osiagalne tylko to input:text i select a do radio i checkbox juz nie
