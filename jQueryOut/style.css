@@ -83,3 +83,22 @@ article{
 #reset:active {
     transform: translate(2px, 2px);
 }
+
+@media (max-width: 800px){
+    #game-board {
+        grid-template-columns: repeat(5, 60px);
+    }
+    
+    .light{
+        width: 60px;
+        height: 60px;
+    }
+    
+    #board{
+        height: 40vh;
+    }
+
+    .lightOn{
+        background-size: 40px;
+    }
+}
