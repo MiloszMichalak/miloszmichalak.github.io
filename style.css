@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --primary-color: #1E201E;
+    --secondary-color: #697565;
+    --accent-color: #ECDFCC;
+}
+
+*{
+    font-family: "Libre Franklin", sans-serif;
+    color: var(--accent-color);
+}
+
+body{
+    background-color: var(--primary-color);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+header{
+    font-size: 60px;
+}
+
+article{
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+div {
+    margin-bottom: 50px;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+
+a:hover{
+    color: var(--secondary-color);
+}
+
+.text-center{
+    text-align: center;
+}
