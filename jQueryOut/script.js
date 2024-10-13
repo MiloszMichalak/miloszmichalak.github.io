@@ -1,3 +1,4 @@
+const boardSize = 5;
 function createBoard(boardSize) {
     const $board = $('#game-board');
     for (let i = 0; i < boardSize * boardSize; i++) {
@@ -15,13 +16,15 @@ function create2DArray(boardSize){
     return array;
 }
 
+let fieldArray = create2DArray(boardSize);
+
 function toggleLight(index, row, col){
     $("#" + index).toggleClass("lightOn");
     fieldArray[row][col] = fieldArray[row][col] === 0 ? 1 : 0;
 }
 
 function checkIfAll2DArrayHasOne(array){
-    for (let i = 0; i < array.length - 1; i++) {
+    for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
             if (array[i][j] !== 1){
                 return false;
@@ -40,7 +43,7 @@ function selectNeighbor(index, row, col){
 
     if (row < boardSize - 1) toggleLight(index + boardSize, row + 1, col)
 
-    toggleLight(index);
+    toggleLight(index, row, col);
 }
 
 function randomClickOnStart() {
@@ -72,10 +75,6 @@ let formattedText;
 
 let seconds = 1;
 
-const boardSize = 5;
-
-let fieldArray = create2DArray(boardSize);
-
 let timeClicked = 0;
 
 let gameStarted = false;
@@ -91,13 +90,16 @@ $(document).on("click", ".light", function(){
 
     timeClicked += 1;
     $("#timeClicked").text("Klikniete " + timeClicked + " razy");
+
+    selectNeighbor(index, row, col);
     
     if(checkIfAll2DArrayHasOne(fieldArray)){
         $("#game-board").css("pointer-events", "none");
-        $("#youWon").text("Wygrałeś używając: " + timeClicked + " kliknięć." + "<br> Z czasem: " + formattedText);
+        $("#youWon").html("Wygrałeś używając: " + timeClicked + " kliknięć." + "<br>Z czasem: " + formattedText);
+        clearInterval(interval);
     }
     
-    selectNeighbor(index, row, col);
+    console.log(fieldArray);
 });
 
 $("#reset").on("click", function (){
@@ -107,7 +109,6 @@ $("#reset").on("click", function (){
 
     seconds = 0;
     gameStarted = false;
-    clearInterval(interval);
     $("#czas").text("Upłyneło: 00:00");
     $("#timeClicked").text("Klikniete 0 razy");
     timeClicked = 0;
