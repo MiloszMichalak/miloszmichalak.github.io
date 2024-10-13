@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+:root{
+    --primary-color: #424874;
+    --secondary-color: #A6B1E1;
+    --accent-color: #DCD6F7;
+}
+
+body{
+    background-color: var(--accent-color);
+    font-family: "Afacad Flux", sans-serif;
+    text-align: center;
+}
+
+header{
+    font-size: 40px;
+}
+
+article{
+    font-size: 30px;
+}
+
+#board{
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-gap: 5px;
+}
+
+#youWon{
+    font-size: 25px;
+}
+
+.light{
+    width: 100px;
+    height: 100px;
+    background-color: var(--primary-color);
+}
+
+.lightOn{
+    background-image: url("light-bulb.svg");
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--secondary-color);
+}
+
+.info{
+    font-size: 30px;
+    text-align: center;
+    margin: 5px;
+}
+
+#reset {
+    background-color: var(--primary-color);
+    border: 2px solid #1b225e;
+    border-radius: 30px;
+    box-shadow: #1b225e 4px 4px 0 0;
+    color: #FAFAFA;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 40px;
+    line-height: 45px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+#reset:hover {
+    background-color: var(--accent-color);
+    color: #FFF;
+}
+
+#reset:active {
+    transform: translate(2px, 2px);
+}
