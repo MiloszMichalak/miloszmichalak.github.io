@@ -111,6 +111,7 @@ $("#reset").on("click", function (){
     gameStarted = false;
     $("#czas").text("Upłyneło: 00:00");
     $("#timeClicked").text("Klikniete 0 razy");
+    $("#game-board").css("pointer-events", "auto");
     timeClicked = 0;
     
     randomClickOnStart();
