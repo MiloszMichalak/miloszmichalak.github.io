@@ -95,10 +95,21 @@ article{
     }
     
     #board{
-        height: 40vh;
+        height: 45vh;
     }
 
     .lightOn{
         background-size: 40px;
+    }
+}
+
+@media (max-height: 800px){
+    #game-board {
+        grid-template-columns: repeat(5, 50px);
+    }
+
+    .light{
+        width: 50px;
+        height: 50px;
     }
 }
