@@ -112,6 +112,7 @@ $("#reset").on("click", function (){
     $("#czas").text("Upłyneło: 00:00");
     $("#timeClicked").text("Klikniete 0 razy");
     $("#game-board").css("pointer-events", "auto");
+    $("#youWon").text("");
     clearInterval(interval);
     timeClicked = 0;
     
