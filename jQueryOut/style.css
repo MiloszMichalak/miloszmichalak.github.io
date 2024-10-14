@@ -13,16 +13,16 @@ body{
 }
 
 header{
-    font-size: 40px;
+    font-size: 60px;
 }
 
 article{
-    font-size: 30px;
+    font-size: 50px;
 }
 
 #board{
     display: flex;
-    height: 60vh;
+    height: 50vh;
     justify-content: center;
     align-items: center;
 }
@@ -51,12 +51,12 @@ article{
     background-color: var(--secondary-color);
 }
 
+
 .info{
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     margin: 5px;
 }
-
 #reset {
     background-color: var(--primary-color);
     border: 2px solid #1b225e;
@@ -65,9 +65,9 @@ article{
     color: #FAFAFA;
     cursor: pointer;
     font-weight: 600;
-    font-size: 18px;
-    padding: 0 40px;
-    line-height: 45px;
+    font-size: 25px;
+    padding: 0 50px;
+    line-height: 55px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -85,6 +85,19 @@ article{
 }
 
 @media (max-width: 800px){
+    header{
+        font-size: 40px;
+    }
+
+    article{
+        font-size: 30px;
+    }
+
+    .info{
+        font-size: 30px;
+        margin: 5px;
+    }
+
     #game-board {
         grid-template-columns: repeat(5, 60px);
     }
@@ -100,6 +113,15 @@ article{
 
     .lightOn{
         background-size: 40px;
+    }
+
+    #reset {
+        background-color: var(--primary-color);
+        border: 2px solid #1b225e;
+        border-radius: 30px;
+        font-size: 20px;
+        padding: 0 40px;
+        line-height: 45px;
     }
 }
 
